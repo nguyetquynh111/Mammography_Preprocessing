@@ -125,9 +125,9 @@ for index, row in bvtn.iterrows():
 
 ori_y = list(bvtn.breast_density.values)
 for patient, label in tqdm(zip(new_X, ori_y)):
-    files = os.listdir("output-ver1/"+patient)
+    files = os.listdir("data/"+patient)
     for f in files:
-        n_img = cv2.imread(os.path.join("output-ver1/"+patient, f), cv2.IMREAD_COLOR)
+        n_img = cv2.imread(os.path.join("data/"+patient, f), cv2.IMREAD_COLOR)
         n_img = preprocess(n_img)
         n_img_size = cv2.resize(n_img, (256, 256))
         X.append(n_img_size)
